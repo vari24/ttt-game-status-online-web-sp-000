@@ -28,40 +28,43 @@ def position_taken?(board, index)
       return false
 end
 
-def won?(board)
- WIN_COMBINATIONS.each do |win_combination|
-   win_index_1 = win_combination[0]
-   win_index_2 = win_combination[1]
-   win_index_3 = win_combination[2]
-   position_1 = board[win_index_1]
-   position_2 = board[win_index_2]
-   position_3 = board[win_index_3]
-   position_1 == position_2 && position_2 == position_3 && position_taken?(board, win_index_1)
- end
+def won?
+  WIN_COMBINATIONS.detect do |combo|
+    position_taken?(combo[0]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]]
+  end
 end
 
-def full?(board)
-   board.all? {|i| i == "X" || i == "O"}
+#full
+def full?
+	@board.all? do |index|
+		 index == "X" || index == "O"
+		end
 end
 
-def draw?(board)
-   if !won?(board) && full?(board)
-     return true
-   elsif !won?(board) && !full?(board)
-     return false
-   else won?(board)
-     return false
-   end
+#draw
+def draw?
+		if won? 
+			return false
+		elsif full? == false 
+			return false 
+		else 
+			return true
+		end
 end
 
-def over?(board)
-   if draw?(board) || won?(board) || full?(board)
-     return true
-   end
+#over
+def over?
+		if won? || draw? == true
+			return true
+		else
+			return false
+		end
 end
 
-def winner(board)
-   if won?(board)
-      return board[won?(board)[0]]
-   end
+#winner
+def winner
+	winning_combo = won?
+	 if winning_combo
+	    return @board[winning_combo[0]]
+	 end
 end
