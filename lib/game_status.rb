@@ -42,29 +42,29 @@ def full?
 end
 
 #draw
-def draw?
-		if won?
-			return false
-		elsif full? == false
-			return false
-		else
-			return true
-		end
+def draw?(board)
+  if won?(board) == nil && full?(board) == true
+    true
+  else
+    false
+  end
 end
 
 #over
-def over?
-		if won? || draw? == true
-			return true
-		else
-			return false
-		end
+def over?(board)
+  if won?(board) != nil || full?(board) ==true || draw?(board) == true
+    true
+  else
+    false
+  end
 end
 
 #winner
-def winner
-	winning_combo = won?
-	 if winning_combo
-	    return board[winning_combo[0]]
-	 end
+def winner(board)
+  if won?(board) != nil
+    winning_board = won?(board)
+    return board[winning_board[0]]
+  else
+    nil
+  end
 end
