@@ -43,11 +43,11 @@ end
 
 #draw
 def draw?
-		if won? 
+		if won?
 			return false
-		elsif full? == false 
-			return false 
-		else 
+		elsif full? == false
+			return false
+		else
 			return true
 		end
 end
