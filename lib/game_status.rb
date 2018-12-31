@@ -4,6 +4,7 @@ def position_taken?(board, index)
 end
 
 # Define your WIN_COMBINATIONS constant
+board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
 def display_board(board)
    puts " #{board[0]} | #{board[1]} | #{board[2]} "
@@ -21,3 +22,9 @@ WIN_COMBINATIONS = [[0,1,2],
 [2,5,8],
 [0,4,8],
 [6,4,2]]
+
+def won?(board)
+  WIN_COMBINATIONS.detect | win_combination |
+						      board[win_combination[0]] == board[win_combination[1]] && board[win_combination[0]] == board[win_combination[2]] && position_taken?(board, win_combination[0])
+						end
+			end
