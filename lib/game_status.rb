@@ -30,13 +30,13 @@ end
 
 def won?
   WIN_COMBINATIONS.detect do |combo|
-    position_taken?(combo[0]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]]
+    position_taken?(combo[0]) && board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]]
   end
 end
 
 #full
 def full?
-	@board.all? do |index|
+	board.all? do |index|
 		 index == "X" || index == "O"
 		end
 end
@@ -65,6 +65,6 @@ end
 def winner
 	winning_combo = won?
 	 if winning_combo
-	    return @board[winning_combo[0]]
+	    return board[winning_combo[0]]
 	 end
 end
