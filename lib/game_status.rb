@@ -15,7 +15,10 @@ WIN_COMBINATIONS = [[0,1,2],
 [6,4,2]]
 
 def won?(board)
-  WIN_COMBINATIONS.find {|win_combination| win_combination.all? {|win_index|board[win_index] == "X"} || win_combination.all? {|win_index| board[win_index] == "0"}}
+  WIN_COMBINATIONS.detect do |win_combination|
+    win_combination.all? { |win_index| board[win_index] == "X" } ||
+    win_combination.all? { |win_index| board[win_index] == "O" }
+  end
 end
 
 #full
