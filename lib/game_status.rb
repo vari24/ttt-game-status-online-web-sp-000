@@ -29,8 +29,3 @@ top_row_win = [0,1,2]
 if board[top_row_win[0]] == "X" && board[top_row_win[1]] == "X" && board[top_row_win[2]] == "X"
   "X won in the top row"
 end
-
-middle_row_win = [3,4,5]
-if board[middle_row_win[3]] == "X" && board[middle_row_win[4]] == "X" && board[middle_row_win[5] == "X"
-  "X won in the middle row"
-end
