@@ -23,6 +23,11 @@ WIN_COMBINATIONS = [[0,1,2],
 [0,4,8],
 [6,4,2]]
 
+def position_taken?(board, index)
+      if board[index] == "" || board[index] == " "
+      return false
+end
+
 def won?(board)
   WIN_COMBINATIONS.detect | win_combination | board[win_combination[0]] == board[win_combination[1]] && board[win_combination[0]] == board[win_combination[2]] && position_taken?(board, win_combination[0])
 end
