@@ -25,10 +25,10 @@ end
 
 #draw
 def draw?(board)
-  if won?(board) == nil && full?(board) == true
-    true
+  if won?(board) && full?(board)
+    return true
   else
-    false
+    return false
   end
 end
 
